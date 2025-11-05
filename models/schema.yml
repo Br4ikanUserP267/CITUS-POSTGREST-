@@ -1,0 +1,161 @@
+version: 2version: 2
+
+
+
+models:models:
+
+  - name: patient_masterdata  - name: patient_masterdata
+
+    description: "Datos maestros de pacientes procesados desde FHIR"    description: "Datos maestros de pacientes procesados desde FHIR"
+
+    columns:    columns:
+
+      - name: patient_id      - name: patient_id
+
+        description: "ID único del paciente"        description: "ID único del paciente"
+
+        tests:        tests:
+
+          - unique          - unique
+
+          - not_null          - not_null
+
+      - name: identifier_value      - name: identifier_value
+
+        description: "Valor del identificador principal"        description: "Valor del identificador principal"
+
+      - name: identifier_system      - name: identifier_system
+
+        description: "Sistema del identificador"        description: "Sistema del identificador"
+
+      - name: name_family      - name: name_family
+
+        description: "Apellido del paciente"        description: "Apellido del paciente"
+
+      - name: name_given      - name: name_given
+
+        description: "Nombre(s) del paciente"        description: "Nombre(s) del paciente"
+
+      - name: gender      - name: gender
+
+        description: "Género del paciente"        description: "Género del paciente"
+
+        tests:        tests:
+
+          - accepted_values:          - accepted_values:
+
+              values: ['male', 'female', 'other', 'unknown']              values: ['male', 'female', 'other', 'unknown']
+
+      - name: birth_date      - name: birth_date
+
+        description: "Fecha de nacimiento"        description: "Fecha de nacimiento"
+
+      - name: active      - name: active
+
+        description: "Estado activo del registro"        description: "Estado activo del registro"
+
+        tests:        tests:
+
+          - not_null          - not_null
+
+
+
+  - name: practitioner_masterdata  - name: practitioner_masterdata
+
+    description: "Datos maestros de profesionales de salud"    description: "Datos maestros de profesionales de salud"
+
+    columns:    columns:
+
+      - name: practitioner_id      - name: practitioner_id
+
+        description: "ID único del profesional"        description: "ID único del profesional"
+
+        tests:        tests:
+
+          - unique          - unique
+
+          - not_null          - not_null
+
+      - name: identifier_value      - name: identifier_value
+
+        description: "Valor del identificador principal"        description: "Valor del identificador principal"
+
+      - name: name_family      - name: name_family
+
+        description: "Apellido del profesional"        description: "Apellido del profesional"
+
+      - name: name_given      - name: name_given
+
+        description: "Nombre(s) del profesional"        description: "Nombre(s) del profesional"
+
+      - name: active      - name: active
+
+        description: "Estado activo del registro"        description: "Estado activo del registro"
+
+
+
+  - name: condition_masterdata  - name: condition_masterdata
+
+    description: "Datos maestros de condiciones médicas"    description: "Datos maestros de condiciones médicas"
+
+    columns:    columns:
+
+      - name: condition_id      - name: condition_id
+
+        description: "ID único de la condición"        description: "ID único de la condición"
+
+        tests:        tests:
+
+          - unique          - unique
+
+          - not_null          - not_null
+
+      - name: patient_id      - name: patient_id
+
+        description: "ID del paciente relacionado"        description: "ID del paciente relacionado"
+
+        tests:        tests:
+
+          - not_null          - not_null
+
+      - name: code_system      - name: code_system
+
+        description: "Sistema de codificación utilizado"        description: "Sistema de codificación utilizado"
+
+      - name: code_value      - name: code_value
+
+        description: "Código de la condición"        description: "Código de la condición"
+
+      - name: display_text      - name: display_text
+
+        description: "Texto descriptivo de la condición"        description: "Texto descriptivo de la condición"
+
+
+
+sources:sources:
+
+  - name: fhir_raw  - name: fhir_raw
+
+    description: "Datos FHIR en formato raw"    description: "Datos FHIR en formato raw"
+
+    tables:    tables:
+
+      - name: patient      - name: patient
+
+        description: "Tabla raw de pacientes FHIR"        description: "Tabla raw de pacientes FHIR"
+
+      - name: practitioner      - name: practitioner
+
+        description: "Tabla raw de profesionales FHIR"        description: "Tabla raw de profesionales FHIR"
+
+      - name: condition      - name: condition
+
+        description: "Tabla raw de condiciones FHIR"        description: "Tabla raw de condiciones FHIR"
+
+      - name: encounter      - name: encounter
+
+        description: "Tabla raw de encuentros FHIR"        description: "Tabla raw de encuentros FHIR"
+
+      - name: medication_administration      - name: medication_administration
+
+        description: "Tabla raw de administración de medicamentos FHIR"        description: "Tabla raw de administración de medicamentos FHIR"

@@ -1,0 +1,51 @@
+interop_db:interop_db:
+
+  target: dev  target: dev
+
+  outputs:  outputs:
+
+    dev:    dev:
+
+      type: postgres      type: postgres
+
+      host: localhost      host: localhost
+
+      user: postgres      user: postgres
+
+      password: postgres      password: postgres
+
+      port: 54432      port: 54432
+
+      dbname: interop_db      dbname: interop_db
+
+      schema: hcd      schema: hcd
+
+      threads: 4      threads: 4
+
+      keepalives_idle: 0      keepalives_idle: 0
+
+      search_path: "hcd"      search_path: "hcd"
+
+        
+
+    prod:    prod:
+
+      type: postgres      type: postgres
+
+      host: localhost      host: localhost
+
+      user: postgres      user: postgres
+
+      password: postgres      password: postgres
+
+      port: 54432      port: 54432
+
+      dbname: interop_db      dbname: interop_db
+
+      schema: hcd_prod      schema: hcd_prod
+
+      threads: 8      threads: 8
+
+      keepalives_idle: 0      keepalives_idle: 0
+
+      search_path: "hcd_prod"      search_path: "hcd_prod"

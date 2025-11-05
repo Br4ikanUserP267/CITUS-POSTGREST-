@@ -1,0 +1,7 @@
+dbt-core>=1.5.0
+dbt-postgres>=1.5.0
+psycopg2-binary
+pandas
+matplotlib
+great-expectations
+flask>=2.0.0

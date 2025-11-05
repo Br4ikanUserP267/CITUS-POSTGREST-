@@ -1,0 +1,56 @@
+{
+  "resourceType": "Practitioner",
+  "identifier": [
+    {
+      "system": "http://www.minsalud.gov.co/reps",
+      "value": "REP001234"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Martínez",
+      "given": ["Ana", "Lucía"],
+      "prefix": ["Dra."]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "+57-1-2345678",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "ana.martinez@hospital.com"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1975-08-10",
+  "qualification": [
+    {
+      "identifier": [
+        {
+          "system": "http://www.minsalud.gov.co/tarjeta-profesional",
+          "value": "TP123456"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "309343006",
+            "display": "Physician"
+          }
+        ],
+        "text": "Médico General"
+      },
+      "period": {
+        "start": "2000-12-15"
+      },
+      "issuer": {
+        "display": "Universidad Nacional de Colombia"
+      }
+    }
+  ]
+}

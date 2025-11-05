@@ -1,0 +1,89 @@
+name: 'interop_masterdata_fhir_colombia'name: 'interop_masterdata_fhir_colombia'
+
+version: '1.0.0'version: '1.0.0'
+
+config-version: 2config-version: 2
+
+
+
+# Perfil que debe coincidir con profiles.yml# Perfil que debe coincidir con profiles.yml
+
+profile: 'interop_db'profile: 'interop_db'
+
+
+
+# Rutas del proyecto# Rutas del proyecto
+
+model-paths: ["models"]model-paths: ["models"]
+
+analysis-paths: ["analyses"]analysis-paths: ["analyses"]
+
+test-paths: ["tests"]test-paths: ["tests"]
+
+seed-paths: ["data"]seed-paths: ["data"]
+
+macro-paths: ["macros"]macro-paths: ["macros"]
+
+snapshot-paths: ["snapshots"]snapshot-paths: ["snapshots"]
+
+
+
+target-path: "target"target-path: "target"
+
+clean-targets:clean-targets:
+
+  - "target"  - "target"
+
+  - "dbt_packages"  - "dbt_packages"
+
+  - "logs"  - "logs"
+
+
+
+# Configuración de modelos# Configuración de modelos
+
+models:models:
+
+  interop_masterdata_fhir_colombia:  interop_masterdata_fhir_colombia:
+
+    # Configuración para modelos de staging    # Configuración para modelos de staging
+
+    staging:    staging:
+
+      +materialized: view      +materialized: view
+
+      +schema: staging      +schema: staging
+
+        
+
+    # Configuración para modelos intermedios    # Configuración para modelos intermedios
+
+    intermediate:    intermediate:
+
+      +materialized: view      +materialized: view
+
+      +schema: intermediate      +schema: intermediate
+
+        
+
+    # Configuración para modelos de marts/data marts    # Configuración para modelos de marts/data marts
+
+    marts:    marts:
+
+      +materialized: table      +materialized: table
+
+      +schema: marts      +schema: marts
+
+
+
+# Configuración de snapshots# Configuración de snapshots
+
+snapshots:snapshots:
+
+  interop_masterdata_fhir_colombia:  interop_masterdata_fhir_colombia:
+
+    +target_schema: snapshots    +target_schema: snapshots
+
+    +strategy: timestamp    +strategy: timestamp
+
+    +updated_at: updated_at    +updated_at: updated_at

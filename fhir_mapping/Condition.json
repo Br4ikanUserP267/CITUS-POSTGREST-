@@ -1,0 +1,79 @@
+{
+  "resourceType": "Condition",
+  "identifier": [
+    {
+      "system": "http://hospital.acme.com/conditions",
+      "value": "COND-001"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24484000",
+        "display": "Severe"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10",
+        "code": "I10",
+        "display": "Essential hypertension"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "59621000",
+        "display": "Essential hypertension"
+      }
+    ],
+    "text": "Hipertensión arterial esencial"
+  },
+  "subject": {
+    "reference": "Patient/patient-001",
+    "display": "María Isabel García"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-001"
+  },
+  "onsetDateTime": "2023-01-15T10:00:00Z",
+  "recordedDate": "2023-10-15",
+  "recorder": {
+    "reference": "Practitioner/practitioner-001",
+    "display": "Dra. Ana Lucía Martínez"
+  },
+  "asserter": {
+    "reference": "Practitioner/practitioner-001",
+    "display": "Dra. Ana Lucía Martínez"
+  }
+}
